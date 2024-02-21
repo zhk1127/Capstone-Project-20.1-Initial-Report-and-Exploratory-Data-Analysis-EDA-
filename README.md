@@ -1,5 +1,5 @@
 # Capstone-Project-20.1-Initial-Report-and-Exploratory-Data-Analysis-EDA-
-Using Differnt Regression Models to Predict ASO toxicity
+Using Different Regression Models to Predict ASO toxicity
 
 Goal: The goal of this project is to identify more effective algorithms to predict antisense nucleotides (ASO) toxicity based on their sequence features. We will be training several linear regression models without regularization or with regularization (L1 and L2) to predict ASO toxicity based on the linear combination of their sequence features. We will used the new models to identify the features which most effectively enhance the accuracy of predicting whether a ASO is toxic or not.
 

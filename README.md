@@ -11,8 +11,24 @@ Data: The data is a from published literature vy Roche in 2022.
 
 Link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9221153
 
-This paper has a supplementary table which contains 1,800 antisense oligonucleotides sequences and their performance in a calcium assay. Among these 1,800 antisense oligonucleotides, 10% of them were also tested in animal experiment with reported toxicity score.
+This paper has a supplementary table which contains 1,800 antisense oligonucleotides sequences and their performance in a calcium assay. Measured calcium score can be used as a indicator for ASO toxicity. The ASOs with smaller calcium score are more toxic than these with greater calcium scores.
 
 Importance My research question is important because big pharmaceutical companies like Roche, Biogen, Eli Lilly can spend >100 millions of dollars in developing genetic medicine (e.g. ASO) to treatment human disease. Currently, they rely on animal experiments and empirical evidence to determine the toxicity of an ASO. It is expensive and also time consuming. The capability to design a ASO without potential toxicity can streamline the whole drug development process and can create real values for these pharmaceutical companies. It is super important to figure out the sequence features within an ASO which can predict its toxcity.
 
 Conclusions:
+1. Linear Regression model gave rise to identical results as the published Roche model for all the coefficients, traing_MSE, test_MSE, which can validate the procedure of my modeling process.
+2. Using Ridge or Lasso Regression did not significantly change the coefficients, traing_MSE, test_MSE, compared to the model without regularization.
+3. It seems like the test_MSE is signifcantly larger than training_MSE, that could be due to the fact that the training set data was not collected use the identical manner as the testing set and there might be some systematic shift between tranining set values and test set values. Therefore, in Section 2, I will use some tools I learned for classification (e.g. confusion matrix, ROC curve) to further evaluate the model.
+4. **All the models suggest that the ASOs with more guanine (G) in its sequence tend be more toxic, because the feature Number_G has most negative coefficient, which is consistent with Roche published results.**
+5. **1. All the 3 models (Linear Regressio, Lasso Regression and Ridge Regression)  gave rise to very similar results in Confusion Matrix and ROC curve.**
+**2. The AUC for all the 3 ROC curves is around 0.82, which suggests that they perform relatively well for the classification task to predict toxic vs. non-toxic ASOs**
+   **1.After including new features, all the 3 models (Linear Regressio, Lasso Regression and Ridge Regression) start to outperform Roche model in terms of their smaller training_MSE and smaller test_MSE.**
+
+**2.However, even after including new features, all the 3 models (Linear Regressio, Lasso Regression and Ridge Regression) still perform very similarly in terms of the coefficients of all features and MSE values**
+
+**3. A long string of adenosine (MaxLength_A) can make the ASO less toxic; ASOs with more guanine (Number_G) in its sequence tend be more toxic**
+**1.After including new features, all the 3 models (Linear Regressio, Lasso Regression and Ridge Regression) outperform Roche model in accuracy curve, because they have greater maximum accuracy and the drop of their accuracy is less steep when we raise the threshold**
+
+**2.All the 3 models (Linear Regressio, Lasso Regression and Ridge Regression) have very similar performance and they are almost completely overlapped in the accuracy curve plot**
+
+**3.After including new features, all the 3 models (Linear Regressio, Lasso Regression and Ridge Regression) don't outperform Roche model when they are evaluated using ROC curves**

@@ -7,7 +7,7 @@ Data Problem: The data task is to train and tune multiple linear regression mode
 
 Expected Results: The expected results would be several models using linear combination of some selected sequence features from an antisense oligonucleotide (ASO) to predict its toxicity. The prediction results are continuous and not binary, but we can choose different thresholds to define a toxic ASO versus a non-toxic ASO and convert the result to binary labels. Then we can use confusion matrix or receiver operation curve (ROC) to compare the performance of different models. In the original paper, a linear regression model is published for this purpose and my goal is to reproduce the authors’ key results by building a similar or even better models.
 
-Data: The data is a from published literature vy Roche in 2022.
+Data: The data is a from published literature by Roche in 2022.
 
 Link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9221153
 
